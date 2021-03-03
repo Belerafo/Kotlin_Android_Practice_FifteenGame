@@ -1,18 +1,16 @@
 package com.example.fiftheen
 
 import android.os.Bundle
-import kotlinx.android.synthetic.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_game_screen.*
-import kotlin.math.floor
-import kotlin.random.Random
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class GameScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
-        val numbers = arrayListOf(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+        tvTimer.start()
+        val numbers = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
         numbers.shuffle()
         line1Button1.text = numbers[0].toString()
         line1Button2.text = numbers[1].toString()
@@ -30,8 +28,8 @@ class GameScreenActivity : AppCompatActivity() {
         line4Button2.text = numbers[13].toString()
         line4Button3.text = numbers[14].toString()
         line4Button4.text = numbers[15].toString()
-
     }
 }
+
 
 
