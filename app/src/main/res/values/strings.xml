@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fiftheen</string>
+    <string name="fiftheen_game">FIFTHEEN GAME</string>
+    <string name="start_button">Start</string>
+    <string name="exit_button">Exit</string>
+    <string name="enter_name">Введите Имя</string>
 </resources>
