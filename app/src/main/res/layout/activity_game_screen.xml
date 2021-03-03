@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/line2"
     android:layout_width="match_parent"
-    android:background="#D2434140"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#D2434140">
 
     <TextView
         android:id="@+id/tvTimer"
         android:layout_width="0dp"
-        android:textColor="#BA9D10"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="0:00:00"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textColor="#BA9D10"
+        android:onClick="RandomSetValue"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,27 +36,36 @@
 
             <Button
                 android:id="@+id/line1Button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10"
+                tools:text="ddd" />
 
             <Button
                 android:id="@+id/line1Button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line1Button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
-                android:id="@+id/line1Bu4ton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:id="@+id/line1Button4"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
         </TableRow>
 
         <TableRow
@@ -65,27 +75,35 @@
 
             <Button
                 android:id="@+id/line2Button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line2Button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line2Button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line2Button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
         </TableRow>
 
         <TableRow
@@ -95,27 +113,35 @@
 
             <Button
                 android:id="@+id/line3Button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line3Button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line3Button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line3Button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
         </TableRow>
 
         <TableRow
@@ -126,27 +152,35 @@
 
             <Button
                 android:id="@+id/line4Button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line4Button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line4Button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
 
             <Button
                 android:id="@+id/line4Button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="4dp"
+                android:textSize="25dp"
+                app:backgroundTint="#BA9D10" />
         </TableRow>
     </TableLayout>
 
