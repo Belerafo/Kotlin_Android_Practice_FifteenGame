@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_game_screen.*
 
-
 class GameScreenActivity : AppCompatActivity() {
     private var buttonsopen = mutableListOf<Button>()
     private val numbersopen = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
@@ -39,7 +38,6 @@ class GameScreenActivity : AppCompatActivity() {
             line4Button4
         )
         buttonsopen = buttons
-
         //buttons.shuffle()
         for (i in 0..14) {
             buttons[i].text = numbers[i].toString()
@@ -57,41 +55,34 @@ class GameScreenActivity : AppCompatActivity() {
             }
         }
         if (finish == 15) {
-            testView.text = finish.toString()
+            tvProgress.text = "Game over"
             tvTimer.stop()
         } else {
-            testView.text = finish.toString()
+            tvProgress.text = "Прогресс игры : ${finish*100/15}"
             finish = 0
         }
     }
 
     // Game Process
     fun onTurn() {
-
         for (i in 0..15) {
             buttonsopen[i].setOnClickListener() {
-
                 //when {
                 if ((i + 1) in 0..15) {
-                    if (buttonsopen[i + 1].text == ""&& i != 3 && i != 7 && i != 11) {
-
+                    if (buttonsopen[i + 1].text == "" && i != 3 && i != 7 && i != 11) {
                         buttonsopen[i + 1].text = buttonsopen[i].text
                         buttonsopen[i].text = ""
-
                     }
                 }
 
                 if ((i - 1) in 0..15) {
                     if (buttonsopen[i - 1].text == "" && i != 12 && i != 8 && i != 4) {
-
                         buttonsopen[i - 1].text = buttonsopen[i].text
                         buttonsopen[i].text = ""
-
                     }
                 }
                 if ((i + 4) in 0..15) {
                     if (buttonsopen[i + 4].text == "") {
-
                         buttonsopen[i + 4].text = buttonsopen[i].text
                         buttonsopen[i].text = ""
                     }
@@ -99,24 +90,14 @@ class GameScreenActivity : AppCompatActivity() {
 
                 if ((i - 4) in 0..15) {
                     if (buttonsopen[i - 4].text == "") {
-
                         buttonsopen[i - 4].text = buttonsopen[i].text
                         buttonsopen[i].text = ""
-
                     }
-
-
                 }
-
-               // testView.text = "${testView.text} ${buttonsopen[i].text} + кнопка $i"
-
+                // testView.text = "${testView.text} ${buttonsopen[i].text} + кнопка $i"
             }
         }
     }
-
-
-
-
 }
 
 
