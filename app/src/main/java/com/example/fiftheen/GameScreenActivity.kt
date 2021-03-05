@@ -1,9 +1,11 @@
 package com.example.fiftheen
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_game_screen.*
 
@@ -18,6 +20,8 @@ class GameScreenActivity : AppCompatActivity() {
             onFinishListener()
         }
         createStartPos()
+
+
     }
 
     // Проверка на конец игры
@@ -102,7 +106,15 @@ class GameScreenActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun onScoreboardClick(view: View) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Androidly Alert")
+        builder.setMessage("We have a message")
+        builder.show()
+    }
 }
+
 
 
 
