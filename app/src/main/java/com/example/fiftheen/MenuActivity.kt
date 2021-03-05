@@ -12,10 +12,12 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
     }
 
-    fun OnClick (view: View) {
-        startActivity(Intent(this@MenuActivity,GameScreenActivity::class.java))
+    fun onStart(view: View) {
+        startActivity(Intent(this@MenuActivity, GameScreenActivity::class.java))
     }
 
-   
-
+    fun onExit(view: View) {
+        finish()
+    }
 }
+

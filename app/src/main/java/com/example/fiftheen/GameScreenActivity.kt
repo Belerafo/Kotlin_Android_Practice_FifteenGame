@@ -17,6 +17,28 @@ class GameScreenActivity : AppCompatActivity() {
         tvTimer.setOnChronometerTickListener {
             onFinishListener()
         }
+        createStartPos()
+    }
+
+    // Проверка на конец игры
+    fun onFinishListener() {
+        var finish = 0
+        for (i in 0..14) {
+            if (buttonsopen[i].text == (i + 1).toString()) {
+                finish++
+                //testView.text =" ${testView.text} ${buttonsopen[i].text} + кнопка $i"
+            }
+        }
+        if (finish == 15) {
+            tvProgress.text = "Game over"
+            tvTimer.stop()
+        } else {
+            tvProgress.text = "Прогресс игры : ${finish * 100 / 15}%"
+            finish = 0
+        }
+    }
+
+    fun createStartPos() {
         val numbers = numbersopen
         numbers.shuffle()
         val buttons = mutableListOf<Button>(
@@ -43,24 +65,6 @@ class GameScreenActivity : AppCompatActivity() {
             buttons[i].text = numbers[i].toString()
         }
         onTurn()
-    }
-
-    // Проверка на конец игры
-    fun onFinishListener() {
-        var finish = 0
-        for (i in 0..14) {
-            if (buttonsopen[i].text == (i + 1).toString()) {
-                finish++
-                //testView.text =" ${testView.text} ${buttonsopen[i].text} + кнопка $i"
-            }
-        }
-        if (finish == 15) {
-            tvProgress.text = "Game over"
-            tvTimer.stop()
-        } else {
-            tvProgress.text = "Прогресс игры : ${finish*100/15}"
-            finish = 0
-        }
     }
 
     // Game Process
