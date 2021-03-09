@@ -26,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun getScoreboardDao(): ScoreboardDao
+    abstract fun getScoreboardDao():ScoreboardDao
 }
 
 

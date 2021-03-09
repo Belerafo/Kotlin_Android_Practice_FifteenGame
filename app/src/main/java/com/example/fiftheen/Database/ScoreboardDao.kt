@@ -4,7 +4,7 @@ import androidx.room.*
 
 
 @Dao
-interface EmployeeDao {
+interface ScoreboardDao {
     @get:Query("SELECT * FROM Scoreboard")
     val all: List<Any?>?
 
