@@ -23,6 +23,7 @@ class MenuActivity : AppCompatActivity() {
 
     fun onStart(view: View) {
         startActivity(Intent(this@MenuActivity, GameScreenActivity::class.java))
+        //добавление
         val employee = Scoreboard()
         employee.id = 1
         employee.name = etNameOfGamer.text.toString()
