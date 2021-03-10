@@ -1,31 +1,40 @@
 package com.example.fiftheen
 
-import android.app.Dialog
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.example.fiftheen.Database.AppDatabase
+import com.example.fiftheen.Database.Scoreboard
 import kotlinx.android.synthetic.main.activity_game_screen.*
+import io.reactivex.disposables.CompositeDisposable
 
 class GameScreenActivity : AppCompatActivity() {
+    private lateinit var db: AppDatabase
+    val compositeDisposable = CompositeDisposable()
     private var buttonsopen = mutableListOf<Button>()
     private val numbersopen = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
+
+        db = AppDatabase.getInstance(applicationContext)
+        val scoreDb = db.getScoreboardDao().getAll()
+
+        tvNameOfGame2.movementMethod = ScrollingMovementMethod()
+
         tvTimer.start()
         tvTimer.setOnChronometerTickListener {
             onFinishListener()
         }
         createStartPos()
-
-
     }
 
     // Проверка на конец игры
     fun onFinishListener() {
+        var nameOfGamer = intent.getStringExtra("NameOfGamer").toString()
         var finish = 0
         for (i in 0..14) {
             if (buttonsopen[i].text == (i + 1).toString()) {
@@ -40,6 +49,12 @@ class GameScreenActivity : AppCompatActivity() {
             tvProgress.text = "Прогресс игры : ${finish * 100 / 15}%"
             finish = 0
         }
+        //добавление
+        val score = Scoreboard()
+        score.id = 1
+        score.name = nameOfGamer
+        score.timeOfEnd = 10000
+        db.getScoreboardDao().insert(score)
     }
 
     fun createStartPos() {
@@ -108,10 +123,20 @@ class GameScreenActivity : AppCompatActivity() {
     }
 
     fun onScoreboardClick(view: View) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Androidly Alert")
-        builder.setMessage("We have a message")
-        builder.show()
+//        var nameOfGamer = intent.getStringExtra("NameOfGamer").toString()
+
+//       bScoreboard.text = nameOfGamer
+        var str = ""
+        val list = db.getScoreboardDao().getAll()
+
+        //val builder = AlertDialog.Builder(this)
+//        builder.setTitle("Scoreboard")
+//        builder.setMessage(str)
+//        builder.show()
+
+        list.observe(this, Observer {  })
+            tvNameOfGame2.append("${score.id} : ${score.name} : ${score.timeOfEnd}\n")
+        }}
     }
 }
 

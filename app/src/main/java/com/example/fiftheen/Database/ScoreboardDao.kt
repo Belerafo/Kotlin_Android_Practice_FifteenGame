@@ -9,7 +9,7 @@ interface ScoreboardDao {
     @Query("SELECT * FROM Scoreboard")
     fun getAll(): LiveData<List<Scoreboard>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(scoreboard: Scoreboard)
 
     @Update
