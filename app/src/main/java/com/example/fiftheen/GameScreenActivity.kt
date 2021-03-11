@@ -1,5 +1,7 @@
 package com.example.fiftheen
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -8,16 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_game_screen.*
 
 class GameScreenActivity : AppCompatActivity() {
+    var time = "9999"
+    var name = "Noone"
+    var pref : SharedPreferences? = null
     private var buttonsopen = mutableListOf<Button>()
     private val numbersopen = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
+        pref = getSharedPreferences("TABLE", Context.MODE_PRIVATE)
+        time = pref?.getString("time","9999")!!
+        name = pref?.getString("name","Noone")!!
 
-
+           tvBestTime.text = "Лучшее время \n  $name - $time"
 
         tvNameOfGame2.movementMethod = ScrollingMovementMethod()
-
         tvTimer.start()
         tvTimer.setOnChronometerTickListener {
             onFinishListener()
@@ -38,6 +45,9 @@ class GameScreenActivity : AppCompatActivity() {
         if (finish == 15) {
             tvProgress.text = "Game over"
             tvTimer.stop()
+            if (removeChars("${tvTimer.text}", ":").toInt() < removeChars("$time", ":").toInt()) {
+                saveData()
+            }
         } else {
             tvProgress.text = "Прогресс игры : ${finish * 100 / 15}%"
             finish = 0
@@ -109,7 +119,18 @@ class GameScreenActivity : AppCompatActivity() {
             }
         }
     }
+    fun saveData()
+    {
+        val editor = pref?.edit()
 
+        editor?.putString("time","${tvTimer.text}")
+        editor?.putString("name", intent.getStringExtra("NameOfGamer").toString( ))
+        editor?.apply()
+
+    }
+
+
+    fun removeChars(s: String, c: String) = s.replace(Regex("[$c]"), "")
     fun onScoreboardClick(view: View) {
 //        var nameOfGamer = intent.getStringExtra("NameOfGamer").toString()
 //       bScoreboard.text = nameOfGamer
