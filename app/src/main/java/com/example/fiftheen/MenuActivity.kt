@@ -1,12 +1,9 @@
 package com.example.fiftheen
 
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fiftheen.Database.AppDatabase
-import com.example.fiftheen.Database.Scoreboard
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
